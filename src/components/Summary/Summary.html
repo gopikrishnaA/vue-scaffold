@@ -1,0 +1,35 @@
+<div class="hello">
+  <h1>Summary</h1>
+  <h4>Likes({{likeCount}}) Unlikes({{unlikeCount}})</h4>
+  <table border='1' cellPadding='10' cellSpacing='0' class='summery-table'>
+    <thead>
+      <tr>
+        <th class='th1'>S.no</th>
+        <th class='th2'>JokeId</th>
+        <th class='th3'>Joke</th>
+        <th class='th4'>
+          <select value={value} v-on:change="filterBy" >
+            <option value='' selected disabled hidden>Filter By</option>
+            <option value='Like'>Like ({{likeCount}})</option>
+            <option value='UnLike'>Unlike ({{unlikeCount}})</option>
+            <option value='All'>All ({{Object.keys(this.$store.state.items).length}})</option>
+          </select>
+        </th>
+        <th class='th5' :style="{ backgroundImage: isSort
+          ? 'url(' + downArrow + ')'
+          : 'url(' + upArrow + ')'}" @click="filterDate" >TimeStamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, key, index) in items">
+        <td>{{ index+1 }}</td>
+        <td class='td1' @click="navigate(key)">
+          {{ key }}
+        </td>
+        <td>{{item.joke}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.timeStamp}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

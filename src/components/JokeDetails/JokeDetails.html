@@ -1,0 +1,7 @@
+<div class="hello">
+  <h1 v-if="!$route.params.id">{{ $store.state.info.joke }}</h1>
+  <h1 v-else>{{ $store.state.items[this.$route.params.id].joke }}</h1>
+  <button @click="serviceCall('Like')">Like</button>
+  <button @click="serviceCall('UnLike')">UnLike</button>
+  <button v-if="Object.keys($store.state.items).length > 0" @click="navigate">Summery</button>
+</div>
