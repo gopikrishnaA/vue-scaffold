@@ -3,7 +3,9 @@ import {
   RATE_JOKE,
   SET_JOKE,
   SHOW_LOADER,
-  HIDE_LOADER
+  HIDE_LOADER,
+  SORT_ORDER,
+  SELECT_STATUS
 } from '../mutation-types'
 
 export const sampleActions = {
@@ -21,5 +23,11 @@ export const sampleActions = {
   },
   hideLoader: ({ commit }) => {
     commit(HIDE_LOADER)
+  },
+  sortOrder: ({ commit }) => {
+    commit(SORT_ORDER)
+  },
+  selectStatus: ({ commit }, payload) => {
+    commit(SELECT_STATUS, payload)
   }
 }

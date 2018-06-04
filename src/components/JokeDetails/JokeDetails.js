@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 export default {
   name: 'JokeDetails',
   mounted () {
@@ -7,7 +8,7 @@ export default {
   },
   methods: {
     serviceCall: function (status) {
-      const info = !this.$route.params.id ? this.$store.state.info : this.$store.state.items[this.$route.params.id]
+      const info = !this.$route.params.id ? this.info : this.items[this.$route.params.id]
       this.$store.dispatch('rateJoke', {
         ...info,
         status
@@ -21,5 +22,8 @@ export default {
     navigate: function () {
       this.$router.push({ name: 'Summary' })
     }
+  },
+  computed: {
+    ...mapGetters(['items', 'currentJoke', 'info'])
   }
 }

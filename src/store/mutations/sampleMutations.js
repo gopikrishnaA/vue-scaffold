@@ -2,7 +2,9 @@ import {
   SET_JOKE,
   RATE_JOKE,
   SHOW_LOADER,
-  HIDE_LOADER
+  HIDE_LOADER,
+  SORT_ORDER,
+  SELECT_STATUS
 } from '../mutation-types'
 
 export const sampleMutations = {
@@ -12,9 +14,9 @@ export const sampleMutations = {
       joke
     }
   },
-  [RATE_JOKE] (state, payload) {
-    state.items = {
-      ...state.items,
+  [RATE_JOKE] ({summary}, payload) {
+    summary.items = {
+      ...summary.items,
       [payload.id]: {
         status: payload.status,
         joke: payload.joke,
@@ -28,5 +30,11 @@ export const sampleMutations = {
   },
   [HIDE_LOADER] (state) {
     state.loading = false
+  },
+  [SORT_ORDER] (state) {
+    state.summary.isSort = !state.summary.isSort
+  },
+  [SELECT_STATUS] (state, payload) {
+    state.summary.status = payload
   }
 }

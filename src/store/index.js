@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import actions from './actions'
 import mutations from './mutations'
+import getters from './getters'
 
 Vue.use(Vuex)
 
@@ -10,9 +11,11 @@ const state = {
   info: {
     joke: 'Loading ...'
   },
-  items: []
-}
-const getters = {
+  summary: {
+    items: [],
+    isSort: false,
+    status: 'All'
+  }
 }
 
 export default new Vuex.Store({

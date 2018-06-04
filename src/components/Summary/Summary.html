@@ -1,7 +1,7 @@
 <div class="hello">
   <h1>Summary</h1>
   <h4>Likes({{likeCount}}) Unlikes({{unlikeCount}})</h4>
-  <table border='1' cellPadding='10' cellSpacing='0' class='summery-table'>
+  <table border='1' cellPadding='10' cellSpacing='0' class='summary-table'>
     <thead>
       <tr>
         <th class='th1'>S.no</th>
@@ -12,7 +12,7 @@
             <option value='' selected disabled hidden>Filter By</option>
             <option value='Like'>Like ({{likeCount}})</option>
             <option value='UnLike'>Unlike ({{unlikeCount}})</option>
-            <option value='All'>All ({{Object.keys(this.$store.state.items).length}})</option>
+            <option value='All'>All ({{totalCount}})</option>
           </select>
         </th>
         <th class='th5' :style="{ backgroundImage: isSort
