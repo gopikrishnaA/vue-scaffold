@@ -4,8 +4,7 @@ module.exports = {
   rootDir: path.resolve(__dirname, '../../'),
   moduleFileExtensions: [
     'js',
-    'json',
-    'vue'
+    'json'
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
@@ -17,12 +16,15 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/test/e2e'
   ],
+  testMatch: [
+    '<rootDir>/src/**/?(*.)(spec|test).js?(x)'
+  ],
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFiles: ['<rootDir>/test/unit/setup'],
-  mapCoverage: true,
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
+    '!src/components/**/*.{js}',
     '!src/main.js',
     '!src/router/index.js',
     '!**/node_modules/**'

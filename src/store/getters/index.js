@@ -1,4 +1,4 @@
-import * as items from './items'
+import items from './items'
 export default {
   ...items
 }
